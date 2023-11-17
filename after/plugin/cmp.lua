@@ -5,7 +5,7 @@ luasnip.config.setup {}
 
 cmp.setup {
   snippet = {
-    expan = function(args)
+    expand = function(args)
       luasnip.lsp_expand(args.body)
     end,
   },

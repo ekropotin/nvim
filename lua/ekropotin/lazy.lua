@@ -1,6 +1,6 @@
 require('lazy').setup({
   -- ThePrimeagen stuff
-  { 'rose-pine/neovim', name = 'rose-pine' },
+  { 'rose-pine/neovim',     name = 'rose-pine' },
   'ThePrimeagen/harpoon',
   -- Git stuff
   'lewis6991/gitsigns.nvim',
@@ -79,6 +79,20 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
-  'nvim-lualine/lualine.nvim'
+  'nvim-lualine/lualine.nvim',
+  {
+    'rcarriga/nvim-dap-ui',
+    dependencies = {
+      'mfussenegger/nvim-dap'
+    }
+  },
+  -- Python stuff
+  {
+    'jose-elias-alvarez/null-ls.nvim',
+    ft = 'python'
+  },
+  {
+    'mfussenegger/nvim-dap-python',
+    ft = 'python'
+  }
 }, {})
-
