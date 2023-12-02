@@ -1,7 +1,10 @@
 require('lazy').setup({
     -- ThePrimeagen stuff
-    { 'rose-pine/neovim',     name = 'rose-pine' },
     'ThePrimeagen/harpoon',
+    -- Theme
+    { 'catppuccin/nvim', name = "catppuccin", priority = 1000 },
+    -- Tmux integration
+    { 'christoomey/vim-tmux-navigator' },
     -- Git stuff
     'lewis6991/gitsigns.nvim',
     'tpope/vim-fugitive',
@@ -14,7 +17,7 @@ require('lazy').setup({
         dependencies = {
             -- Automatically install LSPs to stdpath for neovim
             {
-                'williamboan/mason.nvim',
+                'williamboman/mason.nvim',
                 opts = {
                     ensure_installed = {
                         "black",

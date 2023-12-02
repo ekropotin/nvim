@@ -18,4 +18,4 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("ekropotin.plugins")
-vim.cmd('colorscheme rose-pine')
+vim.cmd('colorscheme catppuccin')
