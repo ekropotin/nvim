@@ -2,7 +2,7 @@ require('lazy').setup({
     -- ThePrimeagen stuff
     'ThePrimeagen/harpoon',
     -- Theme
-    { 'catppuccin/nvim', name = "catppuccin", priority = 1000 },
+    { 'catppuccin/nvim',               name = "catppuccin", priority = 1000 },
     -- Tmux integration
     { 'christoomey/vim-tmux-navigator' },
     -- Git stuff
@@ -53,7 +53,7 @@ require('lazy').setup({
         },
     },
     -- Useful plugin to show you pending keybinds.
-    { 'folke/which-key.nvim', opts = {} },
+    { 'folke/which-key.nvim',  opts = {} },
     {
         -- Add indentation guides even on blank lines
         'lukas-reineke/indent-blankline.nvim',
@@ -104,11 +104,8 @@ require('lazy').setup({
         version = "*",
         opts = {}
     },
+    'stevearc/conform.nvim',
     -- Python stuff
-    {
-        'jose-elias-alvarez/null-ls.nvim',
-        ft = 'python'
-    },
     {
         'mfussenegger/nvim-dap-python',
         ft = 'python'
