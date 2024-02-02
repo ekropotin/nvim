@@ -54,3 +54,13 @@ vim.api.nvim_set_option('list', true)
 vim.api.nvim_set_option('listchars', 'tab:»·,space:·,trail:·,extends:→,precedes:←')
 vim.cmd("highlight EOLWhitespace ctermbg=LightRed guibg=LightRed")
 vim.cmd('match EOLWhitespace /\\s\\+$/')
+
+-- Format Lua on save
+vim.api.nvim_create_augroup('LuaAutoFormatting', {})
+vim.api.nvim_create_autocmd('BufWritePre', {
+    pattern = '*.lua',
+    group = 'LuaAutoFormatting',
+    callback = function()
+        vim.lsp.buf.format({ async = false })
+    end,
+})

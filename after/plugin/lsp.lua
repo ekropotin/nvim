@@ -106,8 +106,8 @@ mason_lspconfig.setup_handlers {
         rt.setup({
             server = {
                 capabilities = capabilities,
-                on_attach = function (_, bufnr)
-                    on_attach(_,bufnr)
+                on_attach = function(_, bufnr)
+                    on_attach(_, bufnr)
                     vim.keymap.set("n", "<Leader>ca", rt.code_action_group.code_action_group, { buffer = bufnr })
                 end
             },
