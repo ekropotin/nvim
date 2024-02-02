@@ -70,6 +70,12 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 local mason_lspconfig = require 'mason-lspconfig'
 
 local lspconfig = require('lspconfig')
+local mason_registry = require("mason-registry")
+local codelldb = mason_registry.get_package("codelldb")
+local extension_path = codelldb:get_install_path() .. "/extension/"
+local codelldb_path = extension_path .. "adapter/codelldb"
+local liblldb_path = extension_path .. "lldb/lib/liblldb.dylib"
+
 mason_lspconfig.setup_handlers {
     function(server_name)
         lspconfig[server_name].setup {
@@ -93,6 +99,21 @@ mason_lspconfig.setup_handlers {
                 },
             },
 
+        })
+    end,
+    ["rust_analyzer"] = function()
+        local rt = require("rust-tools")
+        rt.setup({
+            server = {
+                capabilities = capabilities,
+                on_attach = function (_, bufnr)
+                    on_attach(_,bufnr)
+                    vim.keymap.set("n", "<Leader>ca", rt.code_action_group.code_action_group, { buffer = bufnr })
+                end
+            },
+            dap = {
+                adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path)
+            }
         })
     end
 }

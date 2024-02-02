@@ -24,6 +24,9 @@ require('lazy').setup({
                         "debugpy",
                         "ruff",
                         "pyright",
+                        "rust-analyzer",
+                        "codellbd",
+                        "cpptools"
                     }
                 }
             },
@@ -109,5 +112,7 @@ require('lazy').setup({
     {
         'mfussenegger/nvim-dap-python',
         ft = 'python'
-    }
+    },
+    -- Rust stuff
+    'simrat39/rust-tools.nvim'
 }, {})
