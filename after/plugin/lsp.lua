@@ -34,7 +34,12 @@ local on_attach = function(_, bufnr)
     nmap('gr', builtin.lsp_references, '[G]oto [R]eferences')
     nmap('gI', builtin.lsp_implementations, '[G]oto [I]mplementation')
     nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-    nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
+
+    nmap('K', function()
+        vim.lsp.buf.hover()
+        -- calling hover() twice jumps into the hover window
+        vim.schedule(vim.lsp.buf.hover)
+    end, 'Hover Documentation')
 
     nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
     nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
