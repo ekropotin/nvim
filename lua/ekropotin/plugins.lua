@@ -1,3 +1,7 @@
+local obsidian_vault_path = vim.env.OBSIDIAN_VAULT
+if obsidian_vault_path == nil then
+    obsidian_vault_path = vim.env.HOME
+end
 require('lazy').setup({
     -- ThePrimeagen stuff
     'ThePrimeagen/harpoon',
@@ -111,5 +115,40 @@ require('lazy').setup({
         ft = 'python'
     },
     -- Rust stuff
-    'simrat39/rust-tools.nvim'
+    'simrat39/rust-tools.nvim',
+    -- Show full call hierarchy
+    {
+        'ldelossa/litee-calltree.nvim',
+        dependencies = {
+            'ldelossa/litee.nvim'
+        }
+    },
+    {
+        'epwalsh/obsidian.nvim',
+        lazy = true,
+        event = {
+            'BufNewFile ' .. obsidian_vault_path .. '/**/**.md',
+            'BufReadPre ' .. obsidian_vault_path .. '/**/**.md',
+        },
+        dependencies = {
+            "nvim-lua/plenary.nvim"
+        },
+        opts = {
+            workspaces = {
+                {
+                    name = "vault",
+                    path = obsidian_vault_path
+                }
+            },
+            ui = {
+                enable = false
+            },
+            daily_notes = {
+                folder = "DailyNotes"
+            },
+            templates = {
+                subdir = "Templates",
+            },
+        }
+    }
 }, {})
