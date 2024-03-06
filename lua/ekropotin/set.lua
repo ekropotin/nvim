@@ -39,6 +39,8 @@ vim.o.timeoutlen = 300
 -- Set completeopt to have a better completion experience
 vim.o.wildmode = 'longest,list'
 
+-- Enable spellchecker
+vim.o.spell = true
 -- [[ Highlight on yank ]]
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
