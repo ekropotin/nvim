@@ -31,10 +31,10 @@ require('obsidian').setup({
         enable = false
     },
     daily_notes = {
-        folder = "DailyNotes"
+        folder = "dailies"
     },
     templates = {
-        subdir = "Templates"
+        subdir = "templates"
     },
     note_id_func
 });
